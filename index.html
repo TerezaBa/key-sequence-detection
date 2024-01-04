@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <script type="text/javascript" src="./cornify.js"></script>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <script>
+      const pressed = [];
+      const codeword = "halo";
+
+      function checkCode(e) {
+        console.log(e.key);
+
+        pressed.push(e.key);
+        pressed.splice(-codeword.length - 1, pressed.length - codeword.length);
+
+        if (pressed.join("").includes(codeword)) {
+          console.log("YAY");
+          cornify_add();
+        }
+
+        console.log(pressed);
+      }
+
+      window.addEventListener("keyup", checkCode);
+    </script>
+  </body>
+</html>
